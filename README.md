@@ -1,0 +1,1 @@
+# cupscription_rarity
