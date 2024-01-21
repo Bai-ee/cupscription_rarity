@@ -1,0 +1,363 @@
+{
+    "name": "Cupscriptions",
+    "description": "Cupscriptions is an art passion collaboration between Goldie and Nicky. The goal is to bring ethscriptions to a new underexposed audience of art talent, collectors, and communities to the ethscription ecosystem.",
+    "total_supply": 5000,
+    "logo_image_uri": "https://i.ibb.co/HBjffF3/Frame-25.jpg",
+    "banner_image_uri": "https://i.ibb.co/cbN7pDB/cups-banner.jpg",
+    "background_color": "",
+    "twitter_link": "",
+    "website_link": "https://cupscriptions.xyz",
+    "discord_link": "",
+    "collection_items": [
+        {
+            "ethscription_id": "0x5549e24de720a88ebbb8535995e1462d951aab0c35f9d99f740c765e3a8c0a46",
+            "name": "Cupscription #4992",
+            "description": "",
+            "external_url": "",
+            "background_color": "",
+            "item_index": 4991,
+            "item_attributes": [
+                {
+                    "value": "Chill green",
+                    "trait_type": "Backgrounds"
+                },
+                {
+                    "value": "Pepe green",
+                    "trait_type": "Cup color"
+                },
+                {
+                    "value": "Purple",
+                    "trait_type": "Straws"
+                },
+                {
+                    "value": "Evol sprite",
+                    "trait_type": "Random"
+                },
+                {
+                    "value": "Kissy lips",
+                    "trait_type": "Mouths"
+                },
+                {
+                    "value": "Anime",
+                    "trait_type": "Eyes"
+                },
+                {
+                    "value": "Chillin' shades inverse",
+                    "trait_type": "Glasses"
+                }
+            ]
+        },
+        {
+            "ethscription_id": "0xff6059004621fbbf33e5b47e06dccef75239d42f842688a10c123264c61c0ef2",
+            "name": "Cupscription #4993",
+            "description": "",
+            "external_url": "",
+            "background_color": "",
+            "item_index": 4992,
+            "item_attributes": [
+                {
+                    "value": "mfspace",
+                    "trait_type": "Backgrounds"
+                },
+                {
+                    "value": "Yellow",
+                    "trait_type": "Cup color"
+                },
+                {
+                    "value": "Plain yellow",
+                    "trait_type": "Straws"
+                },
+                {
+                    "value": "chain",
+                    "trait_type": "Random"
+                },
+                {
+                    "value": "Buck teeth",
+                    "trait_type": "Mouths"
+                },
+                {
+                    "value": "Blue square",
+                    "trait_type": "Eyes"
+                },
+                {
+                    "value": "Chillin' shades inverse",
+                    "trait_type": "Glasses"
+                }
+            ]
+        },
+        {
+            "ethscription_id": "0x2c1de15588dcc4152a9b07164624750ea1ad9bfaa812132221bb6ab76d00fa34",
+            "name": "Cupscription #4994",
+            "description": "",
+            "external_url": "",
+            "background_color": "",
+            "item_index": 4993,
+            "item_attributes": [
+                {
+                    "value": "Red shade",
+                    "trait_type": "Backgrounds"
+                },
+                {
+                    "value": "Green pixel cup",
+                    "trait_type": "Special Cup"
+                },
+                {
+                    "value": "Plain yellow",
+                    "trait_type": "Straws"
+                },
+                {
+                    "value": "Stain",
+                    "trait_type": "Coffee"
+                },
+                {
+                    "value": "Alien antennae",
+                    "trait_type": "Random"
+                },
+                {
+                    "value": "Smoking lips",
+                    "trait_type": "Mouths"
+                },
+                {
+                    "value": "Cool",
+                    "trait_type": "Eyes"
+                },
+                {
+                    "value": "nouns eyes - rgb",
+                    "trait_type": "Glasses"
+                }
+            ]
+        },
+        {
+            "ethscription_id": "0x70888a4c27b33e37fa8a876cbd82c58c476efdfb613e64fa00464f5aab606bf7",
+            "name": "Cupscription #4995",
+            "description": "",
+            "external_url": "",
+            "background_color": "",
+            "item_index": 4994,
+            "item_attributes": [
+                {
+                    "value": "Aqua purple",
+                    "trait_type": "Backgrounds"
+                },
+                {
+                    "value": "Comic cup",
+                    "trait_type": "Special Cup"
+                },
+                {
+                    "value": "Plain yellow",
+                    "trait_type": "Straws"
+                },
+                {
+                    "value": "Alien antennae",
+                    "trait_type": "Random"
+                },
+                {
+                    "value": "X ray mouth",
+                    "trait_type": "Mouths"
+                },
+                {
+                    "value": "Beauty",
+                    "trait_type": "Eyes"
+                },
+                {
+                    "value": "nouns eyes - rgb",
+                    "trait_type": "Glasses"
+                }
+            ]
+        },
+        {
+            "ethscription_id": "0x2595fdfdb2210b72c91802cc02d80f362a3881d1ffd841cf41b125f47de0c79c",
+            "name": "Cupscription #4996",
+            "description": "",
+            "external_url": "",
+            "background_color": "",
+            "item_index": 4995,
+            "item_attributes": [
+                {
+                    "value": "Bitcoin orange",
+                    "trait_type": "Backgrounds"
+                },
+                {
+                    "value": "Gary green",
+                    "trait_type": "Cup color"
+                },
+                {
+                    "value": "Brown",
+                    "trait_type": "Straws"
+                },
+                {
+                    "value": "Stain",
+                    "trait_type": "Coffee"
+                },
+                {
+                    "value": "Evol sprite",
+                    "trait_type": "Random"
+                },
+                {
+                    "value": "Sad",
+                    "trait_type": "Mouths"
+                },
+                {
+                    "value": "Unibrow",
+                    "trait_type": "Eyes"
+                }
+            ]
+        },
+        {
+            "ethscription_id": "0x25a769e443630ada53d31910441de837e4cb039dbf0ca153b4f3ec8ec70d1be3",
+            "name": "Cupscription #4997",
+            "description": "",
+            "external_url": "",
+            "background_color": "",
+            "item_index": 4996,
+            "item_attributes": [
+                {
+                    "value": "Berry Blue",
+                    "trait_type": "Backgrounds"
+                },
+                {
+                    "value": "Light brown",
+                    "trait_type": "Cup color"
+                },
+                {
+                    "value": "Green",
+                    "trait_type": "Straws"
+                },
+                {
+                    "value": "Stain",
+                    "trait_type": "Coffee"
+                },
+                {
+                    "value": "Evol sprite",
+                    "trait_type": "Random"
+                },
+                {
+                    "value": "Plain",
+                    "trait_type": "Mouths"
+                },
+                {
+                    "value": "Tired",
+                    "trait_type": "Eyes"
+                }
+            ]
+        },
+        {
+            "ethscription_id": "0x104890290af352719fa245896a0f194a68e1eff904e86a7fd0109179f087fe58",
+            "name": "Cupscription #4998",
+            "description": "",
+            "external_url": "",
+            "background_color": "",
+            "item_index": 4997,
+            "item_attributes": [
+                {
+                    "value": "Mocha",
+                    "trait_type": "Backgrounds"
+                },
+                {
+                    "value": "Green pixel cup",
+                    "trait_type": "Special Cup"
+                },
+                {
+                    "value": "Plain yellow",
+                    "trait_type": "Straws"
+                },
+                {
+                    "value": "Stain",
+                    "trait_type": "Coffee"
+                },
+                {
+                    "value": "Smiley face",
+                    "trait_type": "Mouths"
+                },
+                {
+                    "value": "Old School",
+                    "trait_type": "Eyes"
+                },
+                {
+                    "value": "Chillin' shades inverse",
+                    "trait_type": "Glasses"
+                }
+            ]
+        },
+        {
+            "ethscription_id": "0x99fd23f92400f6d22a228f2874bae5ce61327a7d88c7bab3d28c586d41a7ed31",
+            "name": "Cupscription #4999",
+            "description": "",
+            "external_url": "",
+            "background_color": "",
+            "item_index": 4998,
+            "item_attributes": [
+                {
+                    "value": "Solana",
+                    "trait_type": "Backgrounds"
+                },
+                {
+                    "value": "Blue pixel cup",
+                    "trait_type": "Special Cup"
+                },
+                {
+                    "value": "Plain yellow",
+                    "trait_type": "Straws"
+                },
+                {
+                    "value": "Devil horns",
+                    "trait_type": "Random"
+                },
+                {
+                    "value": "Bad teeth",
+                    "trait_type": "Mouths"
+                },
+                {
+                    "value": "Pretty",
+                    "trait_type": "Eyes"
+                },
+                {
+                    "value": "Chillin' shades red",
+                    "trait_type": "Glasses"
+                }
+            ]
+        },
+        {
+            "ethscription_id": "0xe4b16b128b9bfa534afcf17941214ecda92aeade8c61e5ff4073d8845683acf6",
+            "name": "Cupscription #5000",
+            "description": "",
+            "external_url": "",
+            "background_color": "",
+            "item_index": 4999,
+            "item_attributes": [
+                {
+                    "value": "Yellow",
+                    "trait_type": "Backgrounds"
+                },
+                {
+                    "value": "USA",
+                    "trait_type": "Cup color"
+                },
+                {
+                    "value": "Brown",
+                    "trait_type": "Straws"
+                },
+                {
+                    "value": "Stain",
+                    "trait_type": "Coffee"
+                },
+                {
+                    "value": "Alien antennae",
+                    "trait_type": "Random"
+                },
+                {
+                    "value": "Angry",
+                    "trait_type": "Mouths"
+                },
+                {
+                    "value": "Slick",
+                    "trait_type": "Eyes"
+                },
+                {
+                    "value": "Chillin' shades inverse",
+                    "trait_type": "Glasses"
+                }
+            ]
+        }
+    ]
+}
