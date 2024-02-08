@@ -76,9 +76,12 @@ function createNFTCard(item, imagePath) {
     loader.className = 'loader';
     imageContainer.appendChild(loader);
 
+    // Use thumbnail for the initial image
+    const thumbnailPath = `./thumbs/Cupscription_${parseInt(item.name.replace(/^\D+/g, ''))}.jpg`;
+
     const img = document.createElement('img');
     img.style.display = 'none'; // Initially hide the image
-    img.src = imagePath; // Set the image source directly for loading
+    img.src = thumbnailPath; // Set the thumbnail as the initial image source
     img.alt = item.name;
     img.onload = function() {
         loader.remove(); // Remove the loader once the image is loaded
@@ -87,8 +90,13 @@ function createNFTCard(item, imagePath) {
     img.onerror = function() {
         nftCard.remove(); // Remove the NFT card if the image fails to load
     };
-    imageContainer.appendChild(img);
 
+    // Optionally, switch to the full-size image on mouseover or click
+    img.addEventListener('mouseover', function() {
+        img.src = imagePath; // Switch to the full-size image
+    });
+
+    imageContainer.appendChild(img);
     nftCard.appendChild(imageContainer);
 
     // Create and append content div for title, description, and attributes
