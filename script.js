@@ -159,33 +159,75 @@ gsap.registerPlugin(Flip); // Ensure GSAP plugins are registered if used
 // No need to repeat them here if they are unchanged from your original code
 
 // Attach a click event listener to the sort button
-const sortButton = document.getElementById('sort-button');
-sortButton.addEventListener('click', sortCollectionByName);
+// const sortButton = document.getElementById('sort-button');
+// sortButton.addEventListener('click', sortCollectionByName);
 
 // Sorting function to sort items by name (A-Z)
 function sortCollectionByName() {
     const nftGrid = document.getElementById('nft-grid');
     const nfts = Array.from(nftGrid.children);
 
-    // Capture the state before sorting for the FLIP animation
-    const state = Flip.getState(nfts);
-
-    // Sort the NFTs based on their names (A-Z)
-    const sortedNfts = nfts.sort((a, b) => {
-        const nameA = (a.getAttribute('data-name') || '').toLowerCase();
-        const nameB = (b.getAttribute('data-name') || '').toLowerCase();
+    // Sort the NFTs based on their data-name attribute or inner content
+    nfts.sort((a, b) => {
+        const nameA = a.querySelector('.content div').textContent.toLowerCase(); // Adjust selector as needed
+        const nameB = b.querySelector('.content div').textContent.toLowerCase();
         return nameA.localeCompare(nameB);
     });
 
-    // Re-append sorted NFTs back to the grid
-    sortedNfts.forEach(nft => nftGrid.appendChild(nft));
+    // Detach the grid from DOM to prevent excessive reflows during sorting
+    nftGrid.remove();
 
-    // Animate the reordering using FLIP
-    Flip.from(state, {
-        duration: 0.7,
-        ease: "power1.inOut",
-        absolute: true,
-        scale: true,
-        simple: true
-    });
+    // Re-append sorted NFTs back to the grid
+    nfts.forEach(nft => nftGrid.appendChild(nft));
+
+    // Reattach the grid to the DOM
+    document.body.appendChild(nftGrid); // Adjust this line to insert nftGrid back to its original container
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('search-input');
+    const nftGrid = document.getElementById('nft-grid');
+    const noResults = document.getElementById('no-results');
+
+    searchInput.addEventListener('input', function(e) {
+        const searchTerm = e.target.value.trim();
+        const cards = document.querySelectorAll('.nft-card');
+        let matchFound = false;
+
+        cards.forEach(card => {
+            gsap.set(card, {opacity: 0.4}); // Set all cards to lower opacity initially
+        });
+
+        if (searchTerm !== '') {
+            const searchNumber = parseInt(searchTerm, 10);
+            if (!isNaN(searchNumber)) {
+                cards.forEach(card => {
+                    const editionNumber = parseInt(card.querySelector('.content div').textContent.replace(/^\D+/g, ''), 10);
+                    if (editionNumber === searchNumber) {
+                        gsap.set(card, {opacity: 1}); // Set matching card to full opacity
+                        nftGrid.prepend(card); // Move the matching card to the first position
+                        matchFound = true;
+                    }
+                });
+            }
+        }
+
+        // Handle the display of no results message and reset of grid
+        if (matchFound) {
+            noResults.style.display = 'none';
+        } else {
+            if (searchTerm !== '') {
+                noResults.style.display = 'block';
+                cards.forEach(card => {
+                    gsap.set(card, {opacity: 0}); // Optionally hide all other cards
+                });
+            } else {
+                noResults.style.display = 'none';
+                cards.forEach(card => {
+                    gsap.set(card, {opacity: 0.4}); // Reset opacity when search is cleared
+                });
+            }
+        }
+    });
+});
+
