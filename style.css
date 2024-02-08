@@ -7,22 +7,34 @@ body {
 #nft-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
+    gap: 0px;
     padding: 10px;
     justify-content: center; /* Center items horizontally */
     align-items: center; /* Center items vertically */
     justify-items: center; /* Center content within the items */
 }
 
+.loader {
+    display: inline-block;
+    width: 20%;
+    height: 20%;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #a52222;
+    animation: spin 1s ease-in-out infinite;
+}
 
+@keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+}
 
 .nft-card {
     flex: 1 1 auto;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    /* border: 1px solid #ddd; */
+    /* border-radius: 8px; */
     overflow: hidden;
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     min-height:350px;
     max-height:350px;
     font-size:12px;
@@ -38,6 +50,8 @@ body {
 
 .nft-card .content {
     padding: 10px;
+    width:100%;
+    height:100%
 }
 
 /* For viewports up to 800px wide */
