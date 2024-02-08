@@ -54,79 +54,99 @@ function displayCollectionItems(items) {
     });
 }
 
-function createNFTCard(item, imagePath) {
+function createNFTCard(item, thumbnailPath) {
     const nftCard = document.createElement('div');
     nftCard.className = 'nft-card';
-    nftCard.setAttribute('data-name', item.name); // Set the name attribute for searching
+    // Use percentages or viewport units for responsive design
+    nftCard.style.width = 'calc(100% - 10px)'; // Adjust width to be responsive, subtracting padding
+    // nftCard.style.maxWidth = '210px'; // Set a max-width to ensure cards don't grow too large
+    nftCard.style.height = 'auto'; // Height adjusts based on content
+    nftCard.style.flex = '1 0 auto'; // Allow card to grow within flex container
+    nftCard.style.display = 'flex';
+    nftCard.style.flexDirection = 'column';
+    nftCard.style.alignItems = 'flex-start';
+    nftCard.style.padding = '5px';
+    nftCard.style.gap = '10px';
+    nftCard.style.background = '#FE1203';
+    nftCard.style.borderRadius = '7px';
+    nftCard.style.boxSizing = 'border-box';
 
-    // Set data attributes for sorting
-    if(item.Rarity) {
-        nftCard.setAttribute('data-rarity', item.Rarity); // Assuming 'item' has a 'Rarity' property
-    }
-
-    // Create a div that will contain the loader and the image
     const imageContainer = document.createElement('div');
-    imageContainer.className = 'image-container';
-    imageContainer.style.position = 'relative';
-    imageContainer.style.width = '100%';
-    imageContainer.style.height = '100%';
-
-    // Add the loader
-    const loader = document.createElement('div');
-    loader.className = 'loader';
-    imageContainer.appendChild(loader);
-
-    // Use thumbnail for the initial image
-    const thumbnailPath = `./thumbs/Cupscription_${parseInt(item.name.replace(/^\D+/g, ''))}.jpg`;
+    imageContainer.style.display = 'flex';
+    imageContainer.style.alignItems = 'center';
+    imageContainer.style.justifyContent = 'center';
+    imageContainer.style.width = '100%'; // Make the image container responsive
+    imageContainer.style.paddingTop = '150px'; // Use padding-top for aspect ratio
+    imageContainer.style.position = 'relative'; // Needed for absolute positioning of img
+    imageContainer.style.background = '#192C27';
+    // imageContainer.style.border = '1px solid #696969';
+    imageContainer.style.borderRadius = '7px';
 
     const img = document.createElement('img');
-    img.style.display = 'none'; // Initially hide the image
-    img.src = thumbnailPath; // Set the thumbnail as the initial image source
+    img.style.position = 'absolute';
+    img.style.top = '0';
+    img.style.left = '0';
+    // img.style.width = '100%'; // Image fills the container width
+    // img.style.maxWidth = '150px'; // Limit image size
+    img.style.height = '150px'; // Adjust height automatically
+    img.style.borderRadius = '7px 7px 0px 0px';
+    img.src = thumbnailPath;
     img.alt = item.name;
-    img.onload = function() {
-        loader.remove(); // Remove the loader once the image is loaded
-        img.style.display = ''; // Show the image
-    };
-    img.onerror = function() {
-        nftCard.remove(); // Remove the NFT card if the image fails to load
-    };
 
-    // Optionally, switch to the full-size image on mouseover or click
-    img.addEventListener('mouseover', function() {
-        img.src = imagePath; // Switch to the full-size image
-    });
+    const content = document.createElement('div');
+    content.style.maxWidth = '110px;'; // Content fills the card
+    content.className = 'content';
+    content.style.width = '120px;'; // Content fills the card
+    content.style.flexGrow = '1'; // Allow content to fill available space
+    content.style.display = 'flex';
+    content.style.flexDirection = 'column';
+    content.style.justifyContent = 'center';
+    content.style.alignItems = 'flex-start';
+    // content.style.padding = '10px 20px';
+    // content.style.gap = '10px';
+    content.style.background = '#FE1203';
+    content.style.color = '#000000';
 
+    // Example content: title and rarity
+    const title = document.createElement('div');
+    title.textContent = item.name;
+    title.style.fontFamily = 'Spline Sans, sans-serif';
+    title.style.fontSize = '12px';
+    title.style.lineHeight = '143%';
+    title.style.textTransform = 'uppercase';
+    title.style.color = '#000000';
+
+    const rarity = document.createElement('div');
+    rarity.textContent = `Rarity: ${item.Rarity || 'N/A'}`;
+    rarity.style.fontFamily = 'Spline Sans, sans-serif';
+    rarity.style.fontSize = '17px';
+    rarity.style.lineHeight = '143%';
+    rarity.style.textTransform = 'uppercase';
+    rarity.style.color = '#000000';
+
+    // Assemble the card
     imageContainer.appendChild(img);
     nftCard.appendChild(imageContainer);
-
-    // Create and append content div for title, description, and attributes
-    const content = document.createElement('div');
-    content.className = 'content';
-    content.innerHTML = `
-        <div class="title">${item.name}</div>
-        <div class="description">${item.description}</div>
-    `;
-    // Dynamically add attributes and rarity if available
-    if (item.item_attributes) {
-        item.item_attributes.forEach(attr => {
-            const attributeElement = document.createElement('div');
-            attributeElement.className = 'attribute';
-            attributeElement.textContent = `${attr.trait_type}: ${attr.value}`;
-            content.appendChild(attributeElement);
-        });
-    }
-
-    if (item.Rarity) {
-        const rarityElement = document.createElement('div');
-        rarityElement.className = 'rarity-score';
-        rarityElement.textContent = `Rarity: ${item.Rarity}`;
-        content.appendChild(rarityElement);
-    }
-
+    content.appendChild(title);
+    content.appendChild(rarity);
     nftCard.appendChild(content);
+
+    // Set initial opacity to 40%
+    gsap.set(nftCard, { opacity: 0.4 });
+
+    // Mouseover event to fade to 100% opacity
+    nftCard.addEventListener('mouseover', function() {
+        gsap.to(nftCard, { opacity: 1, duration: 0.3 });
+    });
+
+    // Mouseout event to fade back to 40% opacity
+    nftCard.addEventListener('mouseout', function() {
+        gsap.to(nftCard, { opacity: 0.4, duration: 0.3 });
+    });
 
     return nftCard;
 }
+
 
 function lazyLoadImages() {
     // Lazy loading logic remains unchanged
@@ -137,66 +157,6 @@ gsap.registerPlugin(Flip); // Ensure GSAP plugins are registered if used
 
 // The 'sortCollectionByRarity' and 'searchAndDisplayFirst' functions remain unchanged
 // No need to repeat them here if they are unchanged from your original code
-
-// console.log(Flip)
-
-function sortCollectionByRarity() {
-    const nftGrid = document.getElementById('nft-grid');
-    const nfts = Array.from(nftGrid.children);
-
-    // Capture the state before sorting for the FLIP animation
-    const state = Flip.getState(nfts);
-
-    // Sort the NFTs based on the rarity percentage, assuming data-rarity holds a numerical value
-    const sortedNfts = nfts.sort((a, b) => {
-        const aValue = parseFloat(a.getAttribute('data-rarity')) || 0; // Default to 0 if not set
-        const bValue = parseFloat(b.getAttribute('data-rarity')) || 0; // Default to 0 if not set
-        return bValue - aValue; // Sort in descending order
-    });
-
-    // Re-append sorted NFTs back to the grid
-    sortedNfts.forEach(nft => nftGrid.appendChild(nft));
-
-    // Animate the reordering using FLIP
-    Flip.from(state, {
-        duration: 0.7,
-        ease: "power1.inOut",
-        absolute: true, // Use absolute positioning for FLIP calculations
-        scale: true, // Animate scaling if elements change size
-        simple: true // Simplifies the animation to avoid perspective warping
-    });
-}
-
-function searchAndDisplayFirst() {
-    const searchValue = document.getElementById('search-input').value.toLowerCase();
-    const nftGrid = document.getElementById('nft-grid');
-    const nfts = Array.from(nftGrid.children);
-
-    // Find the index of the NFT that matches the search query by name
-    const foundIndex = nfts.findIndex(nft => {
-        const nameValue = nft.getAttribute('data-name') || ""; // Use the 'data-name' attribute
-        return nameValue.toLowerCase().includes(searchValue);
-    });
-
-    if (foundIndex > -1) {
-        const foundNft = nfts.splice(foundIndex, 1)[0];
-        nftGrid.prepend(foundNft);
-
-        // Optionally, use GSAP's FLIP plugin for a smooth transition
-        const state = Flip.getState(nfts);
-        nfts.unshift(foundNft); // Add the found NFT back to the start of the array
-        nfts.forEach(nft => nftGrid.appendChild(nft)); // Re-append all NFTs to reorder them in the grid
-        Flip.from(state, {
-            duration: 0.7,
-            ease: "power1.inOut",
-            absolute: true,
-            scale: true,
-            simple: true
-        });
-    } else {
-        alert("No matching name found.");
-    }
-}
 
 // Attach a click event listener to the sort button
 const sortButton = document.getElementById('sort-button');
@@ -229,6 +189,3 @@ function sortCollectionByName() {
         simple: true
     });
 }
-
-
-
